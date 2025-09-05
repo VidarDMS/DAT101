@@ -39,6 +39,12 @@ export function printOut(aElement) {
           DOMTextOut.innerHTML += convertObjectToString({ obj: aElement });
         }
         break;
+      case "boolean":
+        DOMTextOut.innerHTML += `${aElement}${newLine}`;
+        break;
+      case "undefined":
+        DOMTextOut.innerHTML += `undefined${newLine}`;
+        break;
       default:
         console.error("Unsupported type:", type);
     }
