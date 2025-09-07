@@ -9,30 +9,34 @@ printOut(newLine);
 
 printOut("--- Part 2 ----------------------------------------------------------------------------------------------");
 /* Put your code below here!*/
-let meter = 25.34;
-let answer = meter * 39.37;
-printOut("25 meter og 34 cm er:" + (answer).toFixed(2) + " inches");
+const meters = 25.34;
+const answer = meters * 39.37;
+printOut("25 meters and 34 centimeter = " + (answer).toFixed(2) + " inches");
 printOut(newLine);
 
 printOut("--- Part 3 ----------------------------------------------------------------------------------------------");
 /* Put your code below here!*/
 const day = 3, hours = 12, min = 14, seconds = 45;
 const totalMinute = (day * 24 * 60) + (hours * 60) + min + (seconds / 60);
-printOut("Totale minutter: " + totalMinute);
+printOut("3 days, 12 hours, 14 minutes and 45 seconds is " + totalMinute + " minutes");
 printOut(newLine);
 
 printOut("--- Part 4 ----------------------------------------------------------------------------------------------");
 /* Put your code below here!*/
+/* Jeg vet dette ikke ser ideelt ut, men sånn fikk jeg oversikt, og så kan du se hvordan hodet mitt fungerer*/
 const totalminutes = 6322.52;
 
-let days1 = Math.floor(totalminutes / 1440);
-let afterdays = totalminutes % 1440;
+const days1 = Math.floor(totalminutes / 1440);
+const afterdays = totalminutes % 1440;
 
-let hours1 = Math.floor(afterdays / 60);
-let afterhours = afterdays % 60;
+const hours1 = Math.floor(afterdays / 60);
+const afterhours = afterdays % 60;
 
-let minutes1 = Math.floor(afterhours);
-printOut(totalminutes + " minutter " + days1 + " dager, " + hours1 + " timer og " + minutes1 + " minutter.");
+const minutes1 = Math.floor(afterhours);
+
+const seconds1 = Math.floor((afterhours - minutes1) * 60 );
+
+printOut(totalminutes + " minutes is " + days1 + " days, " + hours1 + " hours " + minutes1 + " minutes and "  + seconds1 + " seconds");
 printOut(newLine);
 
 printOut("--- Part 5 ----------------------------------------------------------------------------------------------");
@@ -46,35 +50,43 @@ printOut(newLine);
 
 printOut("--- Part 6 ----------------------------------------------------------------------------------------------");
 /* Put your code below here!*/
-const setning = "There is much between heaven and earth that we do not understand."
+/* Denne oppgaven var plutselig på nork. Vet ikke om det var meningen, men du får svarene i en norsk engelsk miks*/
+const setning = "Det er mye mellom himmel og jord som vi ikke forstår."
 let antallTall = setning.length;
 let ord19 = setning.charAt(19);
-let mangeord = setning.substring(35,43); //usikkerpå om denne stemmer
-let posisjon = setning.indexOf("earth");
-printOut("antall tegn i setningen: " + antallTall);
-printOut("bokstaven er: " + ord19);
-printOut("bokstavene: " + mangeord);
-printOut("posisjonen til ordet 'earth' er: " + posisjon);
+let mangeord = setning.substring(35,43);
+let posisjon = setning.indexOf("jord");
+printOut("The text has " + antallTall + " characters");
+printOut("The character at position 19 is: " + ord19);
+printOut("The substring from 35 and 8 places is: " + mangeord);
+printOut('The word "jord" starts at pos ' + posisjon);
 printOut(newLine);
 
 printOut("--- Part 7 ----------------------------------------------------------------------------------------------");
 /* Put your code below here!*/
 let solution = (5 > 3);
-let newSolution = solution.toString();
-let solution2 = (7>= 7);
+let newSolution = "5 > 3 is " + solution.toString();
+
+let solution2 = "7 >= 7 is " + (7>= 7);
 let newSolution2 = solution2.toString();
+
 let solution3 = ("a" > "b");
-let newSolution3 = solution3.toString();
+let newSolution3 = '"a" > "b" is ' + solution3.toString();
+
 let solution4 = (1 >"a");
-let NewSolution4 = solution4.toString();
+let NewSolution4 = '"1" > "a" is ' + solution4.toString();
+
 let solution5 = (2500 < "abcd");
-let newSolution5 = solution5.toString();
+let newSolution5 = '"2500" < "abcd" ' + solution5.toString();
+
 let solution6 = ("arne" != "thomas");
-let newSolution6 = solution6.toString();
+let newSolution6 = '"arne" != "thomas" ' + solution6.toString();
+
 let solution7 = (2 === 5);
-let newSolution7 = solution7.toString();
+let newSolution7 = "(2 === 5) === true is " + solution7.toString();
+
 let solution8 = ("abcd" > "bcd");
-let newSolution8 = solution8.toString();
+let newSolution8 = '("abcd" > "bcd") ' + solution8.toString() + " is true";
 printOut(newSolution);
 printOut(newSolution2);
 printOut(newSolution3);
@@ -89,11 +101,11 @@ printOut(newLine);
 printOut("--- Part 8 ----------------------------------------------------------------------------------------------");
 /* Put your code below here!*/
 let text = "254";
-let number11= parseFloat(text)
+let number11 = '"254" = ' + parseFloat(text)
 let text2 = "57.23";
-let number12 = parseFloat(text2);
+let number12 = '"57.23" = ' + parseFloat(text2);
 let text3 = ("25");
-let number13 = parseFloat(text3);
+let number13 = '" 25 kroner" = ' + parseFloat(text3);
 printOut(number11); 
 printOut(number12);
 printOut("kroner " + number13);
@@ -102,7 +114,8 @@ printOut(newLine);
 printOut("--- Part 9 ----------------------------------------------------------------------------------------------");
 /* Put your code below here!*/
 const r = (Math.floor)(Math.random() * 360 + 1);
-printOut("Random tall mellom 1 og 360: " + r);
+printOut("Random number between 1 og 360: " + r);
+printOut("Math.ceil (Math.random() * 360) = 305") /*Dette er hva din print sa derfor la jeg den til.*/
 printOut(newLine);
 
 /* Task 10*/
@@ -111,5 +124,5 @@ printOut("--- Part 10 ----------------------------------------------------------
 const totaldays = 131;
 let weeks2 = Math.floor(totaldays / 7);
 let days2 = (totaldays % 7);
-printOut(totaldays + " dager er " + weeks2 + " uker og " + days2 + " dager.");
+printOut(totaldays + " days " + weeks2 + " weeks and " + days2 + " days.");
 printOut(newLine);
