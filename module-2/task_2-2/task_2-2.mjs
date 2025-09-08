@@ -76,11 +76,11 @@ let newSolution3 = '"a" > "b" is ' + solution3.toString();
 let solution4 = (1 >"a");
 let NewSolution4 = '"1" > "a" is ' + solution4.toString();
 
-let solution5 = (2500 < "abcd");
-let newSolution5 = '"2500" < "abcd" ' + solution5.toString();
+let solution5 = ("2500" < "abcd");
+let newSolution5 = '"2500" < "abcd" ' + solution5.toString(); // hvorfor blir ikke denne true
 
-let solution6 = ("arne" != "thomas");
-let newSolution6 = '"arne" != "thomas" ' + solution6.toString();
+let solution6 = ("arne" !== "thomas");
+let newSolution6 = '"arne" !== "thomas" ' + solution6.toString();
 
 let solution7 = (2 === 5);
 let newSolution7 = "(2 === 5) === true is " + solution7.toString();
