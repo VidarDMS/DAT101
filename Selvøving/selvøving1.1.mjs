@@ -125,7 +125,12 @@ if (randomnumber < 12) {
 printOut(newLine);
 
 printOut("--- Part 13,");
-/* Put your code below here!*/
+/* Teller opp: Bruk en for-løkke til å skrive tallene fra 1 til 5.*/
+let txt = "";
+for(let count = 1; count <= 5; count++) {
+  txt += " " + count.toString();
+} printOut(txt);
+
 printOut(newLine);
 
 printOut("--- Part 14,");

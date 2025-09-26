@@ -3,12 +3,14 @@ import { printOut, newLine } from "../../common/script/utils.mjs";
 
 printOut("--- Part 1 ----------------------------------------------------------------------------------------------");
 /* Put your code below here!*/
-let counting = 1
-for(counting = 1; counting <= 10; counting++) {
-    printOut(counting);
-} for(counting = 10; counting >= 1; counting--) {
-    printOut(counting); //Jeg får ikke til å få de på linje. Må få bistand til dette.
-}    
+let txt = "";
+let txt2 = "";
+for(let i = 1, j = 10; i <=10; i++, j--) {
+    txt += " " + i.toString();
+    txt2 += " " + j.toString();
+} printOut(txt);
+printOut(txt2);
+
 printOut(newLine);
 
 printOut("--- Part 2 ----------------------------------------------------------------------------------------------");
@@ -47,17 +49,23 @@ printOut("Time (ms): " + elapsed);
 printOut(newLine);
 
 printOut("--- Part 4 ----------------------------------------------------------------------------------------------");
-/* Put your code below here!*/
+/* Use a "for" loop and a "while" loop to find all prime numbers greater than 1 and less than 200*/
 
-for ( let primeNumber = 2; primeNumber <=200; primeNumber++) {
-    while primeNumber =%
-}
 
 printOut(newLine);
 
 printOut("--- Part 5 ----------------------------------------------------------------------------------------------");
 /* Put your code below here!*/
-printOut("Replace this with you answer!");
+const printcolumns = 7;
+const printrows = 9;
+let txt3 = "";
+for (let i=1; i <= printcolumns; i++) {
+ for (let j=1; j <= printrows; j++) {
+    txt3 += " " + " K" + j.toString() + "R" + i.toString();
+
+}
+txt3+="<br>";
+} printOut(txt3);
 printOut(newLine);
 
 printOut("--- Part 6 ----------------------------------------------------------------------------------------------");
