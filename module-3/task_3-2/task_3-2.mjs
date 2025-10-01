@@ -109,9 +109,75 @@ printOut(newLine);
 
 printOut("--- Part 7 ----------------------------------------------------------------------------------------------");
 /* Put your code below here!*/
+function rollDiceSet() {
+   
+    let counts = [0, 0, 0, 0, 0, 0];
+    for (let i = 0; i < 6; i++) {
+        let die = Math.floor(Math.random() * 6) + 1;
+        counts[die - 1]++;
+    }
+    return counts;
+}
 
+let throws = 0;
+let yatzy = false;
+
+do {
+    throws++;
+    let counts = rollDiceSet();
+   
+    if (counts.includes(6)) {
+        yatzy = true;
+    }
+} while (!yatzy);
+
+printOut("Yahtzee! Det tok " + throws + " kast.");
+
+// 2. 2 + 4 (tårn)
+throws = 0;
+let tower = false;
+
+do {
+    throws++;
+    let counts = rollDiceSet();
+    // Tårn: ett tall har 4, et annet tall har 2
+    if (counts.includes(4) && counts.includes(2)) {
+        tower = true;
+    }
+} while (!tower);
+
+printOut("2 + 4 (tårn): Det tok " + throws + " kast.");
+
+// 3. 3 par
+throws = 0;
+let threePairs = false;
+
+do {
+    throws++;
+    let counts = rollDiceSet();
+    // Tre par: nøyaktig tre forskjellige tall har frekvens 2
+    let numPairs = counts.filter(c => c === 2).length;
+    if (numPairs === 3) {
+        threePairs = true;
+    }
+} while (!threePairs);
+
+printOut("Tre par: Det tok " + throws + " kast.");
+
+// 4. Straight (1-6)
+throws = 0;
+let straight = false;
+
+do {
+    throws++;
+    let counts = rollDiceSet();
+    // Straight: hver terningverdi fra 1–6 må være 1 gang
+    if (counts.every(c => c === 1)) {
+        straight = true;
+    }
+} while (!straight);
+
+printOut("Straight (1-6): Det tok " + throws + " kast.");
 
 
 printOut(newLine);
-
-
