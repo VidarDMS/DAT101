@@ -4,7 +4,7 @@ import { printOut, newLine } from "../../common/script/utils.mjs";
 
 printOut("--- Part 1 ----------------------------------------------------------------------------------------------");
 /* Put your code below here!*/
-const mathResult = (2 + 3 * (2 - 4) * 6);
+const mathResult = (5 + 3 * (2 - 4) * 6);
 printOut(mathResult);
 printOut(newLine);
 
