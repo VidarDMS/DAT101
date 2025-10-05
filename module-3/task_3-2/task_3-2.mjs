@@ -109,73 +109,53 @@ printOut(newLine);
 
 printOut("--- Part 7 ----------------------------------------------------------------------------------------------");
 /* Put your code below here!*/
-
-function kastTerning() {
-    let tall = Math.floor(Math.random() * 6 + 1);
-    return tall;
+function diceroll() {
+    return Math.floor(Math.random() * 6 + 1);
 }
 
-function kastSeksterninger() {
-    let terning = [];
+function rollSixDices() {
+    let dice = [];
+    for (i = 0; i < 6; i++) {
+        dice.push(diceroll());
+    }
+    return dice;
+}
+    function countDice() {
+    let diceCounter = [0, 0, 0, 0, 0, 0,];
+    let dice = rollSixDices();
     for (let i = 0; i < 6; i++) {
-        terning.push(kastTerning());
+        diceCounter[dice[i] - 1]++;
+     } 
+     return (diceCounter);    
     }
-    return terning;
+
+    function twoKind() {
+        let twoOfAKind = false;
+        for( let i = 0; i < diceCounter.length; i++) {
+            if(diceCounter[i] === 2) {
+                twoOfAKind = true;
+            } 
+        } return twoOfAKind;
 }
 
-function tellTerninger(terning) {
-    let teller = [0, 0, 0, 0, 0, 0];
-    for (let i = 0; i < terning.length; i++) {
-        teller[terning[i] - 1]++;
-    }
-    return teller;
+function fourKind() {
+        let fourOfAKind = false;
+        for( let i = 0; i < diceCounter.length; i++) {
+            if(diceCounter[i] === 4) {
+                fourOfAKind = true;
+            } 
+        } return fourOfAKind;
 }
 
-// --- sjekker for ulike kombinasjoner ---
-
-function toLike(teller) {
-    for (let i = 0; i < teller.length; i++) {
-        if (teller[i] >= 2) {
-            return true;
-        }
-    }
-    return false;
+function sixKind() {
+        let sixOfAKind = false;
+        for( let i = 0; i < diceCounter.length; i++) {
+            if(diceCounter[i] === 6) {
+                sixOfAKind = true;
+            } 
+        } return sixOfAKind;
 }
 
-function fireLike(teller) {
-    for (let i = 0; i < teller.length; i++) {
-        if (teller[i] >= 4) {
-            return true;
-        }
-    }
-    return false;
-}
 
-function straight(teller) {
-    let liten = teller[0] >= 1 && teller[1] >= 1 && teller[2] >= 1 && teller[3] >= 1 && teller[4] >= 1;
-    let stor  = teller[1] >= 1 && teller[2] >= 1 && teller[3] >= 1 && teller[4] >= 1 && teller[5] >= 1;
 
-    if (liten || stor) {
-        return true;
-    }
-    return false;
-}
 
-function yatzy(teller) {
-    for (let i = 0; i < teller.length; i++) {
-        if (teller[i] >= 5) {
-            return true;
-        }
-    }
-    return false;
-}
-
-// --- selve "spillet" ---
-let terninger = kastSeksterninger();       // kast 6 terninger
-let teller = tellTerninger(terninger);     // tell hvor mange av hvert
-
-printOut(terninger);                       // viser kastet
-printOut("2 like: " + toLike(teller));
-printOut("4 like: " + fireLike(teller));
-printOut("Straight: " + straight(teller));
-printOut("Yatzy: " + yatzy(teller));

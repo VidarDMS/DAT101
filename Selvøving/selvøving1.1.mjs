@@ -260,7 +260,7 @@ function square(x) {
 }
 
 printOut(square(3));
-printOut(square(5));
+printOut(square(5));     
 
 
 printOut(newLine);
