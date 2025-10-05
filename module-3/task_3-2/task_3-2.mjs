@@ -103,81 +103,79 @@ if(percent <= 40) {
 }
 } 
 
-printOut(i);
+
 
 printOut(newLine);
 
 printOut("--- Part 7 ----------------------------------------------------------------------------------------------");
 /* Put your code below here!*/
-function rollDiceSet() {
-   
-    let counts = [0, 0, 0, 0, 0, 0];
-    for (let i = 0; i < 6; i++) {
-        let die = Math.floor(Math.random() * 6) + 1;
-        counts[die - 1]++;
-    }
-    return counts;
+
+function kastTerning() {
+    let tall = Math.floor(Math.random() * 6 + 1);
+    return tall;
 }
 
-let throws = 0;
-let yatzy = false;
-
-do {
-    throws++;
-    let counts = rollDiceSet();
-   
-    if (counts.includes(6)) {
-        yatzy = true;
+function kastSeksterninger() {
+    let terning = [];
+    for (let i = 0; i < 6; i++) {
+        terning.push(kastTerning());
     }
-} while (!yatzy);
+    return terning;
+}
 
-printOut("Yahtzee! Det tok " + throws + " kast.");
-
-// 2. 2 + 4 (tårn)
-throws = 0;
-let tower = false;
-
-do {
-    throws++;
-    let counts = rollDiceSet();
-    // Tårn: ett tall har 4, et annet tall har 2
-    if (counts.includes(4) && counts.includes(2)) {
-        tower = true;
+function tellTerninger(terning) {
+    let teller = [0, 0, 0, 0, 0, 0];
+    for (let i = 0; i < terning.length; i++) {
+        teller[terning[i] - 1]++;
     }
-} while (!tower);
+    return teller;
+}
 
-printOut("2 + 4 (tårn): Det tok " + throws + " kast.");
+// --- sjekker for ulike kombinasjoner ---
 
-// 3. 3 par
-throws = 0;
-let threePairs = false;
-
-do {
-    throws++;
-    let counts = rollDiceSet();
-    // Tre par: nøyaktig tre forskjellige tall har frekvens 2
-    let numPairs = counts.filter(c => c === 2).length;
-    if (numPairs === 3) {
-        threePairs = true;
+function toLike(teller) {
+    for (let i = 0; i < teller.length; i++) {
+        if (teller[i] >= 2) {
+            return true;
+        }
     }
-} while (!threePairs);
+    return false;
+}
 
-printOut("Tre par: Det tok " + throws + " kast.");
-
-// 4. Straight (1-6)
-throws = 0;
-let straight = false;
-
-do {
-    throws++;
-    let counts = rollDiceSet();
-    // Straight: hver terningverdi fra 1–6 må være 1 gang
-    if (counts.every(c => c === 1)) {
-        straight = true;
+function fireLike(teller) {
+    for (let i = 0; i < teller.length; i++) {
+        if (teller[i] >= 4) {
+            return true;
+        }
     }
-} while (!straight);
+    return false;
+}
 
-printOut("Straight (1-6): Det tok " + throws + " kast.");
+function straight(teller) {
+    let liten = teller[0] >= 1 && teller[1] >= 1 && teller[2] >= 1 && teller[3] >= 1 && teller[4] >= 1;
+    let stor  = teller[1] >= 1 && teller[2] >= 1 && teller[3] >= 1 && teller[4] >= 1 && teller[5] >= 1;
 
+    if (liten || stor) {
+        return true;
+    }
+    return false;
+}
 
-printOut(newLine);
+function yatzy(teller) {
+    for (let i = 0; i < teller.length; i++) {
+        if (teller[i] >= 5) {
+            return true;
+        }
+    }
+    return false;
+}
+
+// --- selve "spillet" ---
+let terninger = kastSeksterninger();       // kast 6 terninger
+let teller = tellTerninger(terninger);     // tell hvor mange av hvert
+
+printOut(terninger);                       // viser kastet
+printOut("2 like: " + toLike(teller));
+printOut("4 like: " + fireLike(teller));
+printOut("Straight: " + straight(teller));
+printOut("Yatzy: " + yatzy(teller));
