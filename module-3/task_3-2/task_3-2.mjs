@@ -115,7 +115,7 @@ function diceroll() {
 
 function rollSixDices() {
     let dice = [];
-    for (i = 0; i < 6; i++) {
+    for (let i = 0; i < 6; i++) {
         dice.push(diceroll());
     }
     return dice;
@@ -129,7 +129,7 @@ function rollSixDices() {
      return (diceCounter);    
     }
 
-    function twoKind() {
+    function twoKind(diceCounter) {
         let twoOfAKind = false;
         for( let i = 0; i < diceCounter.length; i++) {
             if(diceCounter[i] === 2) {
@@ -138,7 +138,7 @@ function rollSixDices() {
         } return twoOfAKind;
 }
 
-function fourKind() {
+function fourKind(diceCounter) {
         let fourOfAKind = false;
         for( let i = 0; i < diceCounter.length; i++) {
             if(diceCounter[i] === 4) {
@@ -147,7 +147,7 @@ function fourKind() {
         } return fourOfAKind;
 }
 
-function sixKind() {
+function sixKind(diceCounter) {
         let sixOfAKind = false;
         for( let i = 0; i < diceCounter.length; i++) {
             if(diceCounter[i] === 6) {
@@ -156,6 +156,38 @@ function sixKind() {
         } return sixOfAKind;
 }
 
+function fstraigt(diceCounter) {
+    let fullStraigt = true;
+    for ( let i = 0; i < diceCounter.length; i++) {
+        if(diceCounter[i] === 0) {
+            fullStraigt = false;
+        }
+    } return fullStraigt;
+}
+
+function threepairs(diceCounter) {
+    let threePairs = false;
+    let pairs = 0;
+    for ( let i = 0; i < diceCounter.length; i++) {
+        if(diceCounter[i] === 2) {
+            pairs++;
+        }
+    }
+    if (pairs === 3) {
+        threePairs = true;
+    }
+
+    return threePairs;
+}
 
 
+
+
+let diceCounter = countDice();
+printOut("Terningkast: " + diceCounter);
+printOut("To like: " + twoKind(diceCounter));
+printOut("Fire like: " + fourKind(diceCounter));
+printOut("Yatzy: " + sixKind(diceCounter));
+printOut("Straight: " + fstraigt(diceCounter));
+printOut("Tre par: " + threepairs(diceCounter));
 
