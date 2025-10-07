@@ -191,3 +191,52 @@ printOut("Yatzy: " + sixKind(diceCounter));
 printOut("Straight: " + fstraigt(diceCounter));
 printOut("Tre par: " + threepairs(diceCounter));
 
+let throws = 0;
+let result = false;
+
+do {
+    throws++;
+    diceCounter = countDice();
+    result = twoKind(diceCounter);
+} while (!result) 
+        printOut ( "It took  " + throws + " to get Two of a kind.");
+
+throws = 0;
+result = false;
+
+do {
+    throws++;
+    diceCounter = countDice();
+    result = fourKind(diceCounter);
+} while(!result);
+printOut("It took " + throws + " to get Four of a Kind.");
+
+throws = 0;
+result = false;
+
+do {
+    throws++;
+    diceCounter = countDice();
+    result = sixKind(diceCounter);
+} while (!result);
+printOut("It took " + throws + " to get Yatzy.");
+
+throws = 0;
+result = false;
+
+do {
+    throws++;
+    diceCounter = countDice();
+    result = fstraigt(diceCounter);
+} while (!result);
+printOut( "It took " + throws + " to get Full Straight.");
+
+throws = 0;
+result = false;
+
+do {
+    throws++;
+    diceCounter = countDice();
+    result = threepairs(diceCounter);
+} while (!result);
+printOut(" It took " + throws + " to get 3 pairs.");
