@@ -76,18 +76,62 @@ releaseDay()
 printOut(newLine);
 
 printOut("--- Part 3 ----------------------------------------------------------------------------------------------");
-/* Put your code below here!*/
-printOut("Replace this with you answer!");
+/*Create a function that receives the radius of a circle and prints the diameter, circumference, and area.*/
+
+function circle() {
+    let radius = 5;
+    let diameter = (radius * 2);
+    let circumference = Math.floor(radius * 2 * Math.PI)
+    let area = Math.floor(Math.PI * (radius ** 2));
+    printOut("radius = " + radius + " diameter = " + diameter + " circumference = " + circumference + " area = " + area + ".")
+} 
+circle()
+
 printOut(newLine);
 
 printOut("--- Part 4 ----------------------------------------------------------------------------------------------");
-/* Put your code below here!*/
-printOut("Replace this with you answer!");
+/* Create a function that receives the width and height of a rectangle in an object. Print the circumference
+and area of the given rectangle.*/
+
+function rectangle() {
+    let width = 10;
+    let heigth = 10;
+    let circumference4 = 2 * (width + heigth);
+    let area4 = (width * heigth);
+    printOut("circumference is " + circumference4 + " and area is " + area4 + ".");
+}
+rectangle();
+
 printOut(newLine);
 
 printOut("--- Part 5 ----------------------------------------------------------------------------------------------");
 /* Put your code below here!*/
-printOut("Replace this with you answer!");
+function temperature() {
+
+       let randomTemperature = Math.floor(Math.random() * 71 - 30)
+       let randomLetter = Math.floor(Math.random() * 3 +1) 
+
+        if (randomLetter === 1) {
+        printOut ("Celsius")   
+            let fahrenheit = (randomTemperature * 1.8) + 32;
+            let kelvin = randomTemperature + 273.15;
+            printOut(randomTemperature + "°C = " + fahrenheit + "°F og " + kelvin + "K");
+        }
+        else if (randomLetter === 2) {
+        printOut ("Farenheit")
+            let celsius = (randomTemperature - 32) / 1.8;
+            let kelvin = celsius + 273.15;
+            printOut(randomTemperature + "°F = " + celsius + "°C og " + kelvin + "K");
+    }
+        else {
+        printOut("Kelvin")
+            let celsius = randomTemperature - 273.15;
+            let fahrenheit = (celsius * 1.8) + 32;
+            printOut(randomTemperature + "K = " + celsius + "°C og " + fahrenheit + "°F");
+        }
+       }
+      temperature();
+
 printOut(newLine);
 
 printOut("--- Part 6 ----------------------------------------------------------------------------------------------");
