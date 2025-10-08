@@ -136,7 +136,33 @@ printOut(newLine);
 
 printOut("--- Part 6 ----------------------------------------------------------------------------------------------");
 /* Put your code below here!*/
-printOut("Replace this with you answer!");
+
+function prices (vatIncluded, vatGroup) {
+
+let vatRate;
+if (vatGroup === "Normal") {
+    vatRate = 25;
+} else if (vatGroup === "Food") {
+    vatRate = 15;
+} else if (vatGroup === "Hotel") {
+    vatRate = 10;
+} else {
+    printOut("Unknown VAT group");
+    return;
+}   
+
+let noVat = (100 * vatIncluded) / (vatRate + 100);
+printOut(vatIncluded + " is " + noVat.toFixed(2) + " without tax");
+
+} 
+prices(100, "Normal");
+prices(200, "Food");
+prices(300, "Hotel");
+prices(400, "Wrong");
+    
+
+
+
 printOut(newLine);
 
 printOut("--- Part 7 ----------------------------------------------------------------------------------------------");
