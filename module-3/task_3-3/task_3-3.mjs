@@ -167,21 +167,102 @@ printOut(newLine);
 
 printOut("--- Part 7 ----------------------------------------------------------------------------------------------");
 /* Put your code below here!*/
-printOut("Replace this with you answer!");
+
+function theFlash (speed, distance, time) {
+    if (!speed && distance && time) {
+       let speedMissing = (distance / time);
+       printOut("Speed is " + speedMissing + " m/s"); 
+    } else if (!distance && speed && time) {
+        let distanceMissing = (speed * time);
+        printOut("Distance is " + distanceMissing + " m");
+    } else if (!time && distance && speed) {
+        let timeMissing = (distance / speed);
+        printOut("Time is " + timeMissing + " s");
+    } else if ((!speed && !distance) || (!speed && !time) || (!distance && !time)) {
+        printOut("NaN due to all parameteres where not met");
+    } return ;
+} 
+theFlash(null, 200, 40);  
+theFlash(100, null, 40); 
+theFlash(100, 200, null);
+theFlash(null, null, 50);
+
 printOut(newLine);
 
 printOut("--- Part 8 ----------------------------------------------------------------------------------------------");
-/* Put your code below here!*/
-printOut("Replace this with you answer!");
+function padText(text, maxSize, fillChar, putBefore) {
+    if (text.length < maxSize){
+        let missing = maxSize - text.length;
+        let fillIn = fillChar.repeat(missing); 
+    if (putBefore) {
+        text = fillIn + text;
+    } else {
+        text = text + fillIn;
+    }
+    
+    } printOut(text);
+}
+
+padText ("This is a text", 25, "\xa0", true); // den printer feil i forhold til oppgaven. HJELP!!!!!
+
 printOut(newLine);
 
 printOut("--- Part 9 ----------------------------------------------------------------------------------------------");
-/* Put your code below here!*/
-printOut("Replace this with you answer!");
+
+function testMaths() {
+  let n = 1;
+  let line = 1;
+
+  while (n <= 63) {
+    let leftCount = line + 1;
+    let rightCount = line;
+
+    let leftText = "";
+    let rightText = "";
+
+  
+    for (let i = 0; i < leftCount && n <= 63; i++) {
+      leftText = leftText + n + " ";
+      n = n + 1;
+    }
+
+   
+    for (let i = 0; i < rightCount && n <= 63; i++) {
+      rightText = rightText + n + " ";
+      n = n + 1;
+    }
+
+   
+    let spaces = "";
+    let s = 1;
+    while (s <= (40 - line * 2)) { 
+      spaces = spaces + " ";
+      s = s + 1;
+    }
+
+    printOut(leftText + spaces + "= " + rightText);
+    line = line + 1;
+  }
+
+  printOut("Mathematics is fun!");
+}
+
+testMaths();
+
 printOut(newLine);
 
 /* Task 10*/
 printOut("--- Part 10 ---------------------------------------------------------------------------------------------");
 /* Put your code below here!*/
-printOut("Replace this with you answer!");
+function factorial(n) {
+  if (n == 1) {
+    return 1;
+  } else {
+    return n * factorial(n - 1);
+  }
+}
+
+let number = 9;
+let result = factorial(number);
+printOut("Factorial of " + number + " = " + result);
 printOut(newLine);
