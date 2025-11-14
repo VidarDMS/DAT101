@@ -41,7 +41,33 @@ printOut(newLine);
 
 printOut("--- Part 4 ----------------------------------------------------------------------------------------------");
 /* Put your code below here!*/
-printOut("Replace this with you answer!");
+
+const girls = ["Anne", "Inger", "Kari", "Marit", "Ingrid", "Liv", "Eva", "Berit", "Astrid",
+"Bjørg", "Hilde", "Anna", "Solveig", "Marianne", "Randi", "Ida", "Nina", "Maria", "Elisabeth", "Kristin"]
+
+function removeNameFromArray(aArray, aName){
+    let deleteIndex = -1;
+    for (let i = 0; i < aArray.length; i++) {
+        const name = aArray[i];
+        if(name === aName){
+            //her kan vi slette elementet "Hilde", men dette gjør vi ikke her! Her løper igjennom, og må slette senere!
+            // Vi må lagre indexen i en variabel som sletter senere!
+            deleteIndex = i;
+            break; //
+        }
+    }
+    // Teste om jeg kan slette
+    if(deleteIndex >= 0){
+        printOut(aName + " is found, and  deleted.");
+        aArray.splice(deleteIndex, 1);
+    } else{
+        printOut(aName + " is not found!");
+    }
+}
+
+removeNameFromArray(girls, "Hilde");
+printOut(girls);
+
 printOut(newLine);
 
 printOut("--- Part 5 ----------------------------------------------------------------------------------------------");
